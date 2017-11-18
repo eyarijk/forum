@@ -8,10 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('favicon.icon') }}" rel="shortcut icon">
 
 </head>
 <body>
@@ -37,7 +38,8 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse" >
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                      <li><a href="/about" style="color:#ecf0f1;">About</a></li>
+                      <li><a href="/contact" style="color:#ecf0f1;">Contact</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -75,7 +77,7 @@
 
         @yield('content')
     </div>
-    <p class="text-center">Copyright 2017  </p>
+    @include('forum.includes.footer')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
