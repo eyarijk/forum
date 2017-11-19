@@ -9,7 +9,6 @@
   </div>
   <div class="row">
     <div class="col-md-3">
-      <button type="button" class="btn btn-success btn-block">Ask a question</button><br>
       @include('forum.includes.tags')
     </div>
     <div class="col-md-9">

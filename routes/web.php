@@ -26,3 +26,5 @@ Route::get('/about', function () {
 Route::get('/contact', 'ContactController@index');
 
 Route::get('/profile', 'ProfileController@profile');
+
+Route::resource('/forum','ForumController');

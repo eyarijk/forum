@@ -1,3 +1,4 @@
+<a href="/forum/create" class="btn btn-success btn-block">Ask a question</a><br>
 <div class="list-group">
   <a href="#" class="list-group-item active"> Tags </a>
   <a href="#" class="list-group-item "> PHP </a>

@@ -1,8 +1,9 @@
 @extends('layouts.app')
-@section('title','Profile')
+@section('title',$forum->title)
 @section('content')
-
 <div class="container-fluid">
-  <h2>Hello {{ $user['name'].$user['second_name'] }} </h2>
+<h1>{{ $forum->title }}</h1>
+<p>{{ $forum->post }}</p>
+
 </div>
 @endsection
