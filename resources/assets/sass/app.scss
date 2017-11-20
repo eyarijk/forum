@@ -14,3 +14,8 @@
   background-color: rgb(24, 188, 156);
   color: #555;
 }
+.show-header{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}

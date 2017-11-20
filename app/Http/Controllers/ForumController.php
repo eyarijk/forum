@@ -14,7 +14,8 @@ class ForumController extends Controller
      */
     public function index()
     {
-      return view('forum.index');
+      $forum = Forum::all();
+      return view('forum.index')->withForum($forum);
     }
 
     /**
@@ -37,7 +38,7 @@ class ForumController extends Controller
     {
         $this->validate($request, array(
           'title' => 'required|max:200|min:3',
-          'post' => 'required|min:30'
+          'post' => 'required|min:10'
         ));
         $forum = New Forum;
         $forum->title=$request->title;
@@ -68,7 +69,8 @@ class ForumController extends Controller
      */
     public function edit($id)
     {
-        //
+        $forum = Forum::find($id);
+        return view('forum.edit')->withForum($forum);
     }
 
     /**
@@ -80,7 +82,20 @@ class ForumController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, array(
+          'title' => 'required|max:200|min:3',
+          'post' => 'required|min:10'
+        ));
+
+        $forum = Forum::find($id);
+
+        $forum->title=$request->input('title');
+        $forum->post=$request->input('post');
+
+        $forum->save();
+
+        return redirect()->route('forum.show',$forum->id)->withMessage('Good! You edit a question!');
+
     }
 
     /**

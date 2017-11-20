@@ -15,7 +15,7 @@
           </div>
           <div class="form-group">
             <label for="post">Post</label>
-            <textarea name="post" value="" class="form-control" placeholder="Ask a question..."> </textarea>
+            <textarea name="post" value="" id="description" class="form-control" placeholder="Ask a question..."> </textarea>
           </div>
           <button type="submit" class="btn btn-success">Add</button>
         </div>
