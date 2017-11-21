@@ -180,6 +180,7 @@ return [
         //My packages
 
         Unisharp\Ckeditor\ServiceProvider::class,
+        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
 
     ],
 
@@ -229,7 +230,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        //My aliases
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
     ],
 
 ];

@@ -3,9 +3,9 @@
 @section('content')
 <div class="container-fluid">
   <div class="show-header">
-  <h1>{{ $forum->title }}</h1>
+  <h2>{{ $forum->title }}</h2>
   <div>
-    <a href="{{ route('forum.create') }}" class="btn btn-info pull-right">Сreate a question</a>
+    <a href="{{ route('forum.create') }}" class="btn btn-primary btn-sm pull-right">Сreate a question</a><br>
   </div>
   </div>
 <br>
@@ -24,7 +24,12 @@
       </div>
     </div>
     <dib class="col-md-4">
-      <a href="{{ route('forum.edit',$forum->id) }}" class="btn btn-success btn-block">Edit</a><br>
+      <a href="{{ route('forum.edit',$forum->id) }}" class="btn btn-success btn-block">Edit</a>
+      <form action="{{ route('forum.destroy',$forum->id) }}" method="post">
+        <input  type="hidden" name="_method" value="delete">
+        {{ csrf_field() }}
+        <input  type="submit" class="btn btn-danger btn-block" value="Delete" style="margin:3px 0  3px 0 ;">
+      </form>
       <div class="alert alert-dismissible alert-warning">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong>Help!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.

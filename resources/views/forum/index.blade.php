@@ -9,7 +9,9 @@
     </div>
     <div class="col-md-9">
         @include('forum.includes.post-list')
+        {!! $forum->links() !!}
     </div>
+
 </div>
 </div>
 

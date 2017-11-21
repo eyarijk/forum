@@ -5,105 +5,16 @@
   <div class="jumbotron">
     <h1 class="display-3">Welcome</h1>
     <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <p><a class="btn btn-primary btn-lg" href="#">Join >></a></p>
+    <p><a class="btn btn-primary btn-lg" href="{{ route('forum.index') }}">Join >></a></p>
   </div>
   <div class="row">
     <div class="col-md-3">
       @include('forum.includes.tags')
     </div>
     <div class="col-md-9">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            Hot Threads
-          </h3>
-        </div>
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action">
-              <h4 class="list-group-item-heading">Name</h4>
-              <p class="list-group-item-text">So feel been kept be at gate. Be september it extensive oh concluded of certainty. In read most gate at body held it ever no. Talking justice welcome message inquiry in started of am me. Led own hearted highest visited lasting sir through compass his. Guest tiled he quick by so these trees am. It announcing alteration at surrounded comparison.</p>
-              <span class="label label-primary">PHP</span>
-              <span class="label label-success">Javascript</span>
-              <span class="label label-danger">Laravel</span>
-              <span class="label label-warning">Python</span>
-              <span class="label label-info">CSS</span>
-              <span class="pull-right">by eyarijk 1 sec. ago </span>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <h4 class="list-group-item-heading">Name</h4>
-              <p class="list-group-item-text">So feel been kept be at gate. Be september it extensive oh concluded of certainty. In read most gate at body held it ever no. Talking justice welcome message inquiry in started of am me. Led own hearted highest visited lasting sir through compass his. Guest tiled he quick by so these trees am. It announcing alteration at surrounded comparison.</p>
-              <span class="label label-primary">PHP</span>
-              <span class="label label-success">Javascript</span>
-              <span class="label label-danger">Laravel</span>
-              <span class="label label-warning">Python</span>
-              <span class="label label-info">CSS</span>
-              <span class="pull-right">by eyarijk 1 sec. ago </span>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <h4 class="list-group-item-heading">Name</h4>
-              <p class="list-group-item-text">So feel been kept be at gate. Be september it extensive oh concluded of certainty. In read most gate at body held it ever no. Talking justice welcome message inquiry in started of am me. Led own hearted highest visited lasting sir through compass his. Guest tiled he quick by so these trees am. It announcing alteration at surrounded comparison.</p>
-              <span class="label label-primary">PHP</span>
-              <span class="label label-success">Javascript</span>
-              <span class="label label-danger">Laravel</span>
-              <span class="label label-warning">Python</span>
-              <span class="label label-info">CSS</span>
-              <span class="pull-right">by eyarijk 1 sec. ago </span>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <h4 class="list-group-item-heading">Name</h4>
-              <p class="list-group-item-text">So feel been kept be at gate. Be september it extensive oh concluded of certainty. In read most gate at body held it ever no. Talking justice welcome message inquiry in started of am me. Led own hearted highest visited lasting sir through compass his. Guest tiled he quick by so these trees am. It announcing alteration at surrounded comparison.</p>
-              <span class="label label-primary">PHP</span>
-              <span class="label label-success">Javascript</span>
-              <span class="label label-danger">Laravel</span>
-              <span class="label label-warning">Python</span>
-              <span class="label label-info">CSS</span>
-              <span class="pull-right">by eyarijk 1 sec. ago </span>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <h4 class="list-group-item-heading">Name</h4>
-              <p class="list-group-item-text">So feel been kept be at gate. Be september it extensive oh concluded of certainty. In read most gate at body held it ever no. Talking justice welcome message inquiry in started of am me. Led own hearted highest visited lasting sir through compass his. Guest tiled he quick by so these trees am. It announcing alteration at surrounded comparison.</p>
-              <span class="label label-primary">PHP</span>
-              <span class="label label-success">Javascript</span>
-              <span class="label label-danger">Laravel</span>
-              <span class="label label-warning">Python</span>
-              <span class="label label-info">CSS</span>
-              <span class="pull-right">by eyarijk 1 sec. ago </span>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <h4 class="list-group-item-heading">Name</h4>
-              <p class="list-group-item-text">So feel been kept be at gate. Be september it extensive oh concluded of certainty. In read most gate at body held it ever no. Talking justice welcome message inquiry in started of am me. Led own hearted highest visited lasting sir through compass his. Guest tiled he quick by so these trees am. It announcing alteration at surrounded comparison.</p>
-              <span class="label label-primary">PHP</span>
-              <span class="label label-success">Javascript</span>
-              <span class="label label-danger">Laravel</span>
-              <span class="label label-warning">Python</span>
-              <span class="label label-info">CSS</span>
-              <span class="pull-right">by eyarijk 1 sec. ago </span>
-            </a>
-        </div>
-      </div>
-    <ul class="pagination">
-      <li class="page-item disabled">
-        <a class="page-link" href="#">&laquo;</a>
-      </li>
-      <li class="page-item active">
-        <a class="page-link" href="#">1</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">2</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">3</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">4</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">5</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">&raquo;</a>
-      </li>
-    </ul>
+        @include('forum.includes.post-list')
+        {!! $forum->links() !!}
+    </div>
 </div>
 </div>
 @endsection
