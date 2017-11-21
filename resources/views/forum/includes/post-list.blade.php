@@ -14,7 +14,7 @@
         <span class="label label-danger">Laravel</span>
         <span class="label label-warning">Python</span>
         <span class="label label-info">CSS</span>
-        <span class="pull-right">{{$forum->created_at}} </span>
+        <span class="pull-right">{{$forum->created_at->diffForHumans()}}</span>
       </a>
   </div>
   @endforeach

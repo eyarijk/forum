@@ -20,7 +20,7 @@
         <span class="label label-danger">Laravel</span>
         <span class="label label-warning">Python</span>
         <span class="label label-info">CSS</span>
-        <span class="pull-right">{{$forum->created_at}} by <a href="" >eyarijk</a></span>
+        <span class="pull-right">{{date('d F Y ',strtotime($forum->created_at))}} by <a href="" >eyarijk</a></span>
       </div>
     </div>
     <dib class="col-md-4">
