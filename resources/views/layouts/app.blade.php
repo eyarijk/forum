@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/select2.css') }}" rel="stylesheet">
     <link href="{{ asset('favicon.icon') }}" rel="shortcut icon">
 
 </head>
@@ -28,7 +29,9 @@
     </div>
     @include('forum.includes.footer')
     <!-- Scripts -->
-    <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/select2.js') }}"></script>
+    <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    @yield('script')
 </body>
 </html>

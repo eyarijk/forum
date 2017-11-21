@@ -8367,3 +8367,8 @@ button.close {
   border-bottom: 1px solid #eee;
 }
 
+.table-info {
+  background-color: #3097D1;
+  color: #fff;
+}
+

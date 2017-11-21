@@ -14,6 +14,14 @@
             <input type="text" name="title" value="" class="form-control" placeholder="Enter title...">
           </div>
           <div class="form-group">
+            <label for="tags">Tags</label>
+            <select multiple="multiple" name="tags[]" class="form-control tags" placeholder="Enter tags...">
+              <option value="1">PHP</option>
+              <option value="1">PHP</option>
+              <option value="1">PHP</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="post">Post</label>
             <textarea name="post" value="" id="description" class="form-control" placeholder="Ask a question..."> </textarea>
           </div>
@@ -24,9 +32,16 @@
     <div class="col-md-4">
       <div class="alert alert-dismissible alert-info">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Help!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.
+        <strong>Help!</strong><br>A tag is a keyword or label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question.
       </div>
     </div>
   </div>
 </div>
+@endsection
+@section('script')
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.tags').select2();
+  });
+</script>
 @endsection
