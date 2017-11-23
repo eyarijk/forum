@@ -15,11 +15,9 @@
         <p>{!!$forum->post!!}</p>
       </div>
       <div class="well well-sm">
-        <span class="label label-primary">PHP</span>
-        <span class="label label-success">Javascript</span>
-        <span class="label label-danger">Laravel</span>
-        <span class="label label-warning">Python</span>
-        <span class="label label-info">CSS</span>
+        @foreach($forum->tags as $tag)
+        <span class="label label-success">{{ $tag->name }}</span>
+        @endforeach
         <span class="pull-right">{{date('d F Y ',strtotime($forum->created_at))}} by <a href="" >eyarijk</a></span>
       </div>
     </div>

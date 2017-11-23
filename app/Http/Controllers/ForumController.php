@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Forum;
+use App\Tag;
 
 class ForumController extends Controller
 {
@@ -14,7 +15,7 @@ class ForumController extends Controller
      */
     public function index()
     {
-      $forum = Forum::paginate(10);
+      $forum = Forum::orderBy('id','desc')->paginate(10);
       return view('forum.index')->withForum($forum);
     }
 
@@ -25,7 +26,8 @@ class ForumController extends Controller
      */
     public function create()
     {
-        return view('forum.create');
+        $tags = Tag::all();
+        return view('forum.create')->withTags($tags);
     }
 
     /**
@@ -38,13 +40,16 @@ class ForumController extends Controller
     {
         $this->validate($request, array(
           'title' => 'required|max:200|min:3',
-          'post' => 'required|min:10'
+          'post' => 'required|min:10',
+          'tags' => 'required|min:1'
         ));
         $forum = New Forum;
         $forum->title=$request->title;
         $forum->post=$request->post;
 
         $forum->save();
+
+        $forum->tags()->sync($request->tags);
 
         return redirect()->route('forum.show',$forum->id)->withMessage('Good! You created a question!');
     }
@@ -69,8 +74,9 @@ class ForumController extends Controller
      */
     public function edit($id)
     {
+        $tags = Tag::all();
         $forum = Forum::find($id);
-        return view('forum.edit')->withForum($forum);
+        return view('forum.edit')->withForum($forum)->withTags($tags);
     }
 
     /**
@@ -93,6 +99,9 @@ class ForumController extends Controller
         $forum->post=$request->input('post');
 
         $forum->save();
+
+        $forum->tags=$request->input('tags');
+        $forum->tags()->sync($request->tags);
 
         return redirect()->route('forum.show',$forum->id)->withMessage('Good! You edit a question!');
 

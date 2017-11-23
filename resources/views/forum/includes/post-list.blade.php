@@ -9,11 +9,9 @@
       <a href="{{ route('forum.show',$forum->id) }}" class="list-group-item list-group-item-action">
         <h4 class="list-group-item-heading">{{ $forum->title }}</h4>
         <p class="list-group-item-text">{{ substr(substr(strip_tags($forum->post),0,300), 0, strrpos(substr(strip_tags($forum->post),0,200), ' '))."… " }}</p><br>
-        <span class="label label-primary">PHP</span>
-        <span class="label label-success">Javascript</span>
-        <span class="label label-danger">Laravel</span>
-        <span class="label label-warning">Python</span>
-        <span class="label label-info">CSS</span>
+        @foreach($forum->tags as $tag)
+          <span class="label label-success">{{ $tag->name }}</span>
+        @endforeach
         <span class="pull-right">{{$forum->created_at->diffForHumans()}}</span>
       </a>
   </div>

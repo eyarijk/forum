@@ -15,6 +15,14 @@
             <input type="text" name="title" value="{{ $forum->title }}" class="form-control" placeholder="Enter title...">
           </div>
           <div class="form-group">
+            <label for="tags">Tags</label>
+            <select multiple="multiple" name="tags[]" class="form-control tags" placeholder="Enter tags...">
+              @foreach($tags as $tag)
+                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+              @endforeach
+            </select>
+          </div>
+          <div class="form-group">
             <label for="post">Post</label>
             <textarea name="post" id="description" class="form-control" placeholder="Ask a question...">{{ $forum->post }}</textarea>
           </div>
@@ -30,4 +38,12 @@
     </div>
   </div>
 </div>
+@endsection
+@section('script')
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.tags').select2();
+      $('.tags').select2().val({!! json_encode($forum->tags()->allRelatedIds() ) !!}).trigger('change');
+    });
+  </script>
 @endsection
