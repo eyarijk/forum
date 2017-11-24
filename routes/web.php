@@ -31,3 +31,8 @@ Route::get('/profile', 'ProfileController@profile');
 Route::resource('/forum','ForumController');
 
 Route::resource('/tags','TagController');
+
+
+Route::resource('/comment','CommentController');
+
+Route::post('comment/create/{forum}','CommentController@createComment')->name('createComment.store');

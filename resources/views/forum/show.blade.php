@@ -18,13 +18,24 @@
         @foreach($forum->tags as $tag)
         <span class="label label-success">{{ $tag->name }}</span>
         @endforeach
-        <span class="pull-right">{{date('d F Y ',strtotime($forum->created_at))}} by <a href="" >$user->name</a></span>
+        <span class="pull-right">{{date('d F Y ',strtotime($forum->created_at))}} by <a href="" >{{$forum->user->name}}</a></span>
       </div>
+      <hr>
+      <label>Comments:</label>
       @foreach($forum->comments as $comment)
-        <p>{{ $comment->easy_comment }}</p>
-        <p>{{ $comment->user->name }}</p>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p>{{ $comment->easy_comment }}</p>
+            <div class="pull-right">
+              <small>{{ $comment->created_at->diffForHumans() }} by {{ $comment->user->name }}</small>
+            </div>
+          </div>
+        </div>
       @endforeach
-      <form >
+      <hr>
+      <label>Add comment:</label>
+      <form  action="{{ route('createComment.store',$forum->id) }}" method="post">
+          {{ csrf_field() }}
         <div class="form-group">
           <input type="text" name="easy_comment" class="form-control" placeholder="Enter comment...">
         </div>
