@@ -6,7 +6,7 @@
   </div>
   @foreach($forum as $forum)
     <div class="list-group" >
-      <a href="{{ route('forum.show',$forum->id) }}" class="list-group-item list-group-item-action">
+      <a href="{{ route('forum.show',$forum->slug) }}" class="list-group-item list-group-item-action">
         <h4 class="list-group-item-heading">{{ $forum->title }}</h4>
         <p class="list-group-item-text">{{ substr(substr(strip_tags($forum->post),0,300), 0, strrpos(substr(strip_tags($forum->post),0,200), ' '))."… " }}</p><br>
         @foreach($forum->tags as $tag)

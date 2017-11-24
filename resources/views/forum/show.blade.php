@@ -44,7 +44,7 @@
     </div>
     <dib class="col-md-4">
       @if(auth()->user()->id == $forum->user_id)
-      <a href="{{ route('forum.edit',$forum->id) }}" class="btn btn-success btn-block">Edit</a>
+      <a href="{{ route('forum.edit',$forum->slug) }}" class="btn btn-success btn-block">Edit</a>
       <form action="{{ route('forum.destroy',$forum->id) }}" method="post">
         <input  type="hidden" name="_method" value="delete">
         {{ csrf_field() }}

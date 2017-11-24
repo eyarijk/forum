@@ -49,13 +49,14 @@ class ForumController extends Controller
         ));
         $forum = New Forum;
         $forum->title=$request->title;
+        $forum->slug=str_slug($forum->title);
         $forum->post=$request->post;
         $forum->user_id=auth()->id();
         $forum->save();
 
         $forum->tags()->sync($request->tags);
 
-        return redirect()->route('forum.show',$forum->id)->withMessage('Good! You created a question!');
+        return redirect()->route('forum.show',$forum->slug)->withMessage('Good! You created a question!');
     }
 
     /**
@@ -64,9 +65,9 @@ class ForumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $forum = Forum::find($id);
+        $forum = Forum::where('slug','=',$slug)->first();
         return view('forum.show')->withForum($forum);
     }
 
@@ -76,10 +77,10 @@ class ForumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
         $tags = Tag::all();
-        $forum = Forum::find($id);
+        $forum = Forum::where('slug','=',$slug)->first();
         return view('forum.edit')->withForum($forum)->withTags($tags);
     }
 
@@ -90,14 +91,14 @@ class ForumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
         $this->validate($request, array(
           'title' => 'required|max:200|min:3',
           'post' => 'required|min:10'
         ));
 
-        $forum = Forum::find($id);
+        $forum = Forum::where('slug','=',$slug)->first();
 
         $forum->title=$request->input('title');
         $forum->post=$request->input('post');
@@ -107,7 +108,7 @@ class ForumController extends Controller
         $forum->tags=$request->input('tags');
         $forum->tags()->sync($request->tags);
 
-        return redirect()->route('forum.show',$forum->id)->withMessage('Good! You edit a question!');
+        return redirect()->route('forum.show',$forum->slug)->withMessage('Good! You edit a question!');
 
     }
 
