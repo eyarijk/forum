@@ -33,5 +33,11 @@
     <script src="{{ asset('js/select2.js') }}"></script>
     <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
     @yield('script')
+    <script type="text/javascript">
+      $(document).ready(function() {
+      $("#img_style img").attr("style","max-width:100%");
+        });
+    </script>
+
 </body>
 </html>

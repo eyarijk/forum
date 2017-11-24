@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title','Edit a question')
 @section('content')
-
+@if(auth()->user()->id == $forum->user_id)
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-8">
@@ -47,3 +47,8 @@
     });
   </script>
 @endsection
+@else
+<script type="text/javascript">
+    window.location = "/";
+</script>
+@endif

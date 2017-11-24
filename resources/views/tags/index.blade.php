@@ -24,8 +24,8 @@
       <label>All tags:</label>
       <table class="table table-striped table-hover table-bordered" >
         <thead class="table-info" >
-          <tr >
-            <th>#</th>
+          <tr>
+            <th>ID</th>
             <th>Tag name</th>
             <th>Created at</th>
             <th>Updated at</th>

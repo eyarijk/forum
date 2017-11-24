@@ -8,6 +8,10 @@ use App\Tag;
 
 class ForumController extends Controller
 {
+    function __construct()
+    {
+      return $this->middleware('auth')->except('index');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +50,7 @@ class ForumController extends Controller
         $forum = New Forum;
         $forum->title=$request->title;
         $forum->post=$request->post;
-
+        $forum->user_id=auth()->id();
         $forum->save();
 
         $forum->tags()->sync($request->tags);
